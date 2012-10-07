@@ -1,5 +1,6 @@
 package de.mbohlen.katabankueberweisung.cmdline
 
+import de.mbohlen.katabankueberweisung.domain.BankenRepository
 import de.mbohlen.katabankueberweisung.domain.KontenRepository
 import de.mbohlen.katabankueberweisung.domain.KontenRepositoryImpl
 
@@ -10,8 +11,9 @@ public class Program {
     private void run(String[] args) {
         println "Willkommen bei der Kata Bank!"
 
-        if (args.length < 2) {
-            println "Nutzung: Program <Datenverzeichnis> <Name der Kontenlistendatei>"
+        if (args.length < 3) {
+            println "Nutzung: Program <Datenverzeichnis> <Kontenlistendatei> <Bankenlistendatei>"
+            return
         }
 
         technischeInfrastrukturAufsetzen(args)
@@ -26,6 +28,25 @@ public class Program {
         System.in.withReader {
             senderkontoErfassen (it)
             betragUndTextErfragen (it)
+            empfaengerKontoErfragen (it)
+        }
+    }
+
+    private void empfaengerKontoErfragen (stream) {
+        println ""
+        print "Name des Empfängers: "
+        guContext.empfaengerName = stream.readLine().trim()
+        print "Kontonummer des Empfängers: "
+        guContext.empfaengerKontoNummer = stream.readLine().trim()
+
+        while (1) {
+            print "Bankleitzahl des Empfängers: "
+            guContext.empfaengerBlz = stream.readLine().trim()
+            if (guContext.empfaengerIstValide()) {
+                break
+            }
+            println "Ungültige Bankleitzahl(${guContext.empfaengerBlz})"
+            println "Bitte noch einmal eingeben"
         }
     }
 
@@ -63,6 +84,10 @@ public class Program {
         File kontenListe = new File(args[0], args[1])
         KontenRepository kontenRepository = new KontenRepositoryImpl()
         kontenRepository.init(kontenListe.toURI().toURL())
+
+        File bankenListe = new File(args[0], args[2])
+        BankenRepository bankenRepository = new BankenRepository()
+        bankenRepository.init(bankenListe.toURI().toURL())
     }
 
     public static void main(String[] args) {
