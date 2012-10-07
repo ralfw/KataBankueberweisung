@@ -1,0 +1,1 @@
+Name	Kontonummer	Kontostand	†berweisungslimit	HandyNrPeter Mustermann	12349876	2896,5	1000	0170-32996523Paul Zettel	56788765	742,9	2500	0163-84274923Maria Traum	11223344	-183,4	500	0171-22394874
