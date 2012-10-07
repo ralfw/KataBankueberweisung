@@ -24,8 +24,8 @@ class KontenRepositoryImpl implements KontenRepository {
 		is.splitEachLine("\t") { fields ->
 			if (!istErsteZeile) {
 				def parseDouble = { field -> field.replace(',', '.').toDouble() }
-				Kunde kunde = new Kunde(name: fields[0], ueberweisungslimit: parseDouble(fields[3]), handyNr: fields[4])
-				Konto konto = new Konto(inhaber: kunde,  kontonummer: fields[1], kontostand: parseDouble(fields[2]))
+				Kunde kunde = new Kunde(name: fields[0], handyNr: fields[4])
+				Konto konto = new Konto(inhaber: kunde,  kontonummer: fields[1], kontostand: parseDouble(fields[2]), ueberweisungslimit: parseDouble(fields[3]))
 
 				kunden.put(kunde.name, kunde)
 				konten.put(konto.kontonummer, konto)

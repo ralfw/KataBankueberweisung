@@ -7,21 +7,21 @@ import groovy.util.GroovyTestCase
 
 class SenderValidierenHabitTest extends GroovyTestCase {
 
-    SenderValidierenHabit svh
+    GeldUeberweisenContext svh
 
     @Override
     protected void setUp() throws Exception {
         KontenRepositoryTest.erzeugeInitialisiertesTestKontenRepository()
-        svh = new SenderValidierenHabit()
+        svh = new GeldUeberweisenContext()
     }
 
     public final void testSollteLeereEingabenErkennen() {
-        assert !svh.istValide()
+        assert !svh.senderIstValide()
 
         svh.senderName = "Paul Zettel"
-        assert !svh.istValide()
+        assert !svh.senderIstValide()
 
         svh.senderKontoNummer = "56788765"
-        assert svh.istValide()
+        assert svh.senderIstValide()
     }
 }
