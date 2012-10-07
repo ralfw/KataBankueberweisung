@@ -13,6 +13,7 @@ class GeldUeberweisenContext {
     String empfaengerKontoNummer
     String empfaengerBlz
     Bank empfaengerBank
+    String verschickteTAN, eingegebeneTAN
 
     boolean senderIstValide() {
         if (senderName == null || senderName.empty || senderKontoNummer == null || senderKontoNummer.empty) {
@@ -36,5 +37,14 @@ class GeldUeberweisenContext {
             return false
         empfaengerBank = Bank.findByBankLeitzahl (empfaengerBlz)
         return empfaengerBank != null
+    }
+    
+    void tanVerschicken() {
+        verschickteTAN = 1234
+        // FAKE: Normalerweise würden wir hier wirklich das Verschicken einer TAN auslösen!
+    }
+    
+    boolean tanIstValide() {
+        return eingegebeneTAN == verschickteTAN
     }
 }

@@ -35,7 +35,31 @@ public class Program {
                     break
                 }
             }
+            tanVerschicken (it)
+            tanErfragenUndPruefen (it)
+            println "*** Hier würden wir jetzt das Geld überweisen! ***"
         }
+    }
+
+    private boolean tanErfragenUndPruefen (reader) {
+        println ""
+        while (1) {
+            println "Bitte geben Sie die TAN ein,"
+            print "die Sie auf Ihrem Mobiltelefon erhalten haben: "
+            guContext.eingegebeneTAN = reader.readLine().trim()
+            if (guContext.tanIstValide()) {
+                break
+            }
+            println "Ungültige TAN(${guContext.eingegebeneTAN})"
+            println "Bitte noch einmal eingeben"
+        }
+    }
+
+    private void tanVerschicken (reader) {
+        println ""
+        println "An Ihr Mobiltelefon wurde eine TAN verschickt!"
+        println "*** FAKE: Wir verschicken nicht, sondern nehmen an, wir hätten 1234 verschickt!"
+        guContext.tanVerschicken()
     }
 
     private boolean angabenPruefen (reader) {
