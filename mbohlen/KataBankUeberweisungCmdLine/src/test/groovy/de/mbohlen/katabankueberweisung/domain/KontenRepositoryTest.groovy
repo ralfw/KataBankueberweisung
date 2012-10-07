@@ -11,7 +11,7 @@ class KontenRepositoryTest extends GroovyTestCase {
      * @return Test-Kundenrepository
      */
     public static KontenRepository erzeugeInitialisiertesTestKontenRepository() {
-        KontenRepository kr = new KontenRepositoryImpl()
+        KontenRepositoryImpl kr = new KontenRepositoryImpl()
         kr.init(KontenRepositoryTest.class.getResource("KontenRepositoryTestKontenliste.txt"))
         return kr
     }   
@@ -22,12 +22,18 @@ class KontenRepositoryTest extends GroovyTestCase {
     }
     
     public final void testSollteEinzelnesKontoFinden() {
-        Konto k = kr.findKontoByKontoNummer("11223344")
+        Konto k = Konto.findByKontoNummer("11223344")
         assert k != null
         assert k.inhaber.name == "Maria Traum"
         
-        k = kr.findKontoByKontoNummer("illegaleNummer")
+        k = Konto.findByKontoNummer("illegaleNummer")
         assert k == null
+    }
+    
+    public void testSollteEinzelnenKundenFinden() {
+        Kunde k = Kunde.findByName ("Peter Mustermann")
+        assert k != null
+        assert k.name == "Peter Mustermann"
     }
 
 }

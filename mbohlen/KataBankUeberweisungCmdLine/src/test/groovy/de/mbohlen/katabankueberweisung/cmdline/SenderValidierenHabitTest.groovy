@@ -11,8 +11,8 @@ class SenderValidierenHabitTest extends GroovyTestCase {
 
     @Override
     protected void setUp() throws Exception {
+        KontenRepositoryTest.erzeugeInitialisiertesTestKontenRepository()
         svh = new SenderValidierenHabit()
-        svh.kontenRepository = KontenRepositoryTest.erzeugeInitialisiertesTestKontenRepository()
     }
 
     public final void testSollteLeereEingabenErkennen() {
