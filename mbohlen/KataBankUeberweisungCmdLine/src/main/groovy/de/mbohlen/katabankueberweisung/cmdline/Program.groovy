@@ -1,7 +1,7 @@
 package de.mbohlen.katabankueberweisung.cmdline
 
 import de.mbohlen.katabankueberweisung.domain.BankenRepository
-import de.mbohlen.katabankueberweisung.domain.KontenRepositoryImpl
+import de.mbohlen.katabankueberweisung.domain.KontenRepository
 
 public class Program {
 
@@ -81,7 +81,7 @@ public class Program {
 
     private void technischeInfrastrukturAufsetzen(String[] args) {
         File kontenListe = new File(args[0], args[1])
-        KontenRepositoryImpl kontenRepository = new KontenRepositoryImpl()
+        KontenRepository kontenRepository = new KontenRepository()
         kontenRepository.init(kontenListe.toURI().toURL())
 
         File bankenListe = new File(args[0], args[2])

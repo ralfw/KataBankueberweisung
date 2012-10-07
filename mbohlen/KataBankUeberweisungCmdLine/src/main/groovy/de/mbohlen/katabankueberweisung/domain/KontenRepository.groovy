@@ -1,6 +1,6 @@
 package de.mbohlen.katabankueberweisung.domain
 
-class KontenRepositoryImpl {
+class KontenRepository {
 
     private Map kunden = [:]
     private Map konten = [:]

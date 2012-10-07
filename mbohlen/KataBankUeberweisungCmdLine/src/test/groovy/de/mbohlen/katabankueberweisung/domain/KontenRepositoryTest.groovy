@@ -4,14 +4,14 @@ import groovy.util.GroovyTestCase;
 
 class KontenRepositoryTest extends GroovyTestCase {
 
-    KontenRepositoryImpl kr
+    KontenRepository kr
 
     /**
      * Erzeugt ein fertig initialisiertes KontenRepository, nur für Testzwecke.
      * @return Test-Kundenrepository
      */
-    public static KontenRepositoryImpl erzeugeInitialisiertesTestKontenRepository() {
-        KontenRepositoryImpl kr = new KontenRepositoryImpl()
+    public static KontenRepository erzeugeInitialisiertesTestKontenRepository() {
+        KontenRepository kr = new KontenRepository()
         kr.init(KontenRepositoryTest.class.getResource("KontenRepositoryTestKontenliste.txt"))
         return kr
     }   
