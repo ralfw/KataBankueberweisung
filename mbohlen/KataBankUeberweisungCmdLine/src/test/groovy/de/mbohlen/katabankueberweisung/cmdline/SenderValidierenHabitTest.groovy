@@ -1,6 +1,5 @@
 package de.mbohlen.katabankueberweisung.cmdline
 
-import de.mbohlen.katabankueberweisung.domain.KontenRepository
 import de.mbohlen.katabankueberweisung.domain.KontenRepositoryTest
 import de.mbohlen.katabankueberweisung.domain.Konto
 import groovy.util.GroovyTestCase
