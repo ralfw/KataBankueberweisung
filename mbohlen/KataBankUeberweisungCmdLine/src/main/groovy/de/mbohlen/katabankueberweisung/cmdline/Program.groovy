@@ -15,6 +15,7 @@ public class Program {
         technischeInfrastrukturAufsetzen(args)
         benutzerDialogStarten()
 
+        println ""
         println "Auf Wiedersehen bei der Kata Bank!"
     }
 
