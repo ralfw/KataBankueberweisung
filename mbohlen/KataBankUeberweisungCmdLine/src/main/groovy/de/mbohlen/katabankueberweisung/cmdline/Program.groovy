@@ -1,7 +1,9 @@
 package de.mbohlen.katabankueberweisung.cmdline
 
+import de.mbohlen.katabankueberweisung.domain.Bank
 import de.mbohlen.katabankueberweisung.domain.BankenRepository
 import de.mbohlen.katabankueberweisung.domain.KontenRepository
+import de.mbohlen.katabankueberweisung.domain.Konto
 
 public class Program {
 
@@ -25,22 +27,52 @@ public class Program {
 
     private benutzerDialogStarten() {
         System.in.withReader {
-            senderkontoErfassen (it)
-            betragUndTextErfragen (it)
-            empfaengerKontoErfragen (it)
+            while (1) {
+                senderkontoErfassen (it)
+                betragUndTextErfragen (it)
+                empfaengerKontoErfragen (it)
+                if (angabenPruefen (it)) {
+                    break
+                }
+            }
         }
     }
 
-    private void empfaengerKontoErfragen (stream) {
+    private boolean angabenPruefen (reader) {
+        println ""
+        println "Sender: ${guContext.senderName}"
+        println "Sender-Kontonummer: ${guContext.senderKontoNummer}"
+        println "Betrag: ${guContext.betrag}"
+        println "Überweisungstext: ${guContext.ueberweisungsText}"
+        println "Empfänger: ${guContext.empfaengerName}"
+        println "Empfänger-Kontonummer: ${guContext.empfaengerKontoNummer}"
+        println "Empfänger-Bankleitzahl: ${guContext.empfaengerBlz} (${guContext.empfaengerBank.name})"
+
+        String antwort
+        def positiv = { a -> a.empty || a == "ja" }
+        def negativ = { a -> a == "nein" }
+        println ""
+        while (1) {
+            print "Alle Angaben korrekt? [ja, nein, leer=ja] "
+            antwort = reader.readLine().trim()
+            if (positiv(antwort) || negativ(antwort))
+                break
+            println "Ungültige Antwort"
+        }
+
+        return positiv(antwort)
+    }
+
+    private void empfaengerKontoErfragen (reader) {
         println ""
         print "Name des Empfängers: "
-        guContext.empfaengerName = stream.readLine().trim()
+        guContext.empfaengerName = reader.readLine().trim()
         print "Kontonummer des Empfängers: "
-        guContext.empfaengerKontoNummer = stream.readLine().trim()
+        guContext.empfaengerKontoNummer = reader.readLine().trim()
 
         while (1) {
             print "Bankleitzahl des Empfängers: "
-            guContext.empfaengerBlz = stream.readLine().trim()
+            guContext.empfaengerBlz = reader.readLine().trim()
             if (guContext.empfaengerIstValide()) {
                 break
             }
@@ -49,11 +81,11 @@ public class Program {
         }
     }
 
-    private void betragUndTextErfragen (stream) {
+    private void betragUndTextErfragen (reader) {
         while (1) {
             println ""
             print "Überweisungsbetrag: "
-            guContext.betrag = stream.readLine().trim().toDouble()
+            guContext.betrag = reader.readLine().trim().toDouble()
             if (guContext.betragIstValide()) {
                 break
             }
@@ -61,16 +93,16 @@ public class Program {
             println "Bitte noch einmal eingeben"
         }
         print "Überweisungstext: "
-        guContext.ueberweisungsText = stream.readLine().trim()
+        guContext.ueberweisungsText = reader.readLine().trim()
     }
 
-    private void senderkontoErfassen(stream) {
+    private void senderkontoErfassen(reader) {
         while (1) {
             println ""
             print "Name des Senders: "
-            guContext.senderName = stream.readLine().trim()
+            guContext.senderName = reader.readLine().trim()
             print "Kontonummer des Senders: "
-            guContext.senderKontoNummer = stream.readLine().trim()
+            guContext.senderKontoNummer = reader.readLine().trim()
             if (guContext.senderIstValide()) {
                 break
             }
