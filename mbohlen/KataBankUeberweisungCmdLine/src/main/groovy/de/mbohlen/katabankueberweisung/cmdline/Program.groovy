@@ -1,6 +1,7 @@
 package de.mbohlen.katabankueberweisung.cmdline
 
 /**
+ * Hauptprogramm fŸr den Command Line Client der Kata Bank.
  * @author Matthias Bohlen
  *
  */
