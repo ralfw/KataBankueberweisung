@@ -6,9 +6,7 @@ package de.mbohlen.katabankueberweisung.cmdline
  *
  */
 public class Program {
-
-	public static void main(String[] args) {
-		println "Willkommen bei der Kata Bank!"
-	}
-
+    public static void main(String[] args) {
+        println "Willkommen bei der Kata Bank!"
+    }
 }
