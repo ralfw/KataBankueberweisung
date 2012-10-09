@@ -2,6 +2,7 @@ package de.mbohlen.katabankueberweisung.cmdline
 
 import de.mbohlen.katabankueberweisung.domain.KontenRepositoryTest
 import de.mbohlen.katabankueberweisung.domain.Konto
+import de.mbohlen.katabankueberweisung.ueberweisung.GeldUeberweisenContext;
 import groovy.util.GroovyTestCase
 
 class SenderValidierenHabitTest extends GroovyTestCase {

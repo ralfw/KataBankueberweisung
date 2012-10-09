@@ -1,4 +1,4 @@
-package de.mbohlen.katabankueberweisung.cmdline
+package de.mbohlen.katabankueberweisung.ueberweisung
 
 import de.mbohlen.katabankueberweisung.domain.Bank
 import de.mbohlen.katabankueberweisung.domain.Konto
@@ -38,13 +38,29 @@ class GeldUeberweisenContext {
         empfaengerBank = Bank.findByBankLeitzahl (empfaengerBlz)
         return empfaengerBank != null
     }
-    
+
     void tanVerschicken() {
         verschickteTAN = 1234
         // FAKE: Normalerweise würden wir hier wirklich das Verschicken einer TAN auslösen!
     }
-    
+
     boolean tanIstValide() {
         return eingegebeneTAN == verschickteTAN
+    }
+
+    void geldUeberweisen() {
+        GeldQuelle quelle
+        GeldSenke senke
+
+        senderKonto.metaClass.mixin(UeberweisungsGeldQuelle)
+        quelle = senderKonto as GeldQuelle
+
+        senke = new UeberweisungsGeldSenke(
+                bankLeitzahl: empfaengerBlz,
+                kontoNummer: empfaengerKontoNummer,
+                empfaenger: empfaengerName
+                )
+
+        quelle.ueberweisenAn(betrag, ueberweisungsText, senke)
     }
 }

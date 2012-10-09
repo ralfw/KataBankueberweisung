@@ -4,16 +4,23 @@ import de.mbohlen.katabankueberweisung.domain.Bank
 import de.mbohlen.katabankueberweisung.domain.BankenRepository
 import de.mbohlen.katabankueberweisung.domain.KontenRepository
 import de.mbohlen.katabankueberweisung.domain.Konto
+import de.mbohlen.katabankueberweisung.domain.UeberweisungsJournal;
+import de.mbohlen.katabankueberweisung.ueberweisung.GeldUeberweisenContext;
 
 public class Program {
 
     private GeldUeberweisenContext guContext
+    
+    KontenRepository kontenRepository
+    BankenRepository bankenRepository
+    UeberweisungsJournal ueberweisungsJournal
+    
 
     private void run(String[] args) {
         println "Willkommen bei der Kata Bank!"
 
-        if (args.length < 3) {
-            println "Nutzung: Program <Datenverzeichnis> <Kontenlistendatei> <Bankenlistendatei>"
+        if (args.length < 4) {
+            println "Nutzung: Program <Datenverzeichnis> <Kontenlistendatei> <Bankenlistendatei> <Überweisungsjournaldatei>"
             return
         }
 
@@ -21,6 +28,8 @@ public class Program {
         guContext = new GeldUeberweisenContext()
         benutzerDialogStarten()
 
+        technischeInfrastrukturSchliessen(args)
+        
         println ""
         println "Auf Wiedersehen bei der Kata Bank!"
     }
@@ -37,7 +46,7 @@ public class Program {
             }
             tanVerschicken (it)
             tanErfragenUndPruefen (it)
-            println "*** Hier würden wir jetzt das Geld überweisen! ***"
+            guContext.geldUeberweisen ()
         }
     }
 
@@ -137,14 +146,23 @@ public class Program {
 
     private void technischeInfrastrukturAufsetzen(String[] args) {
         File kontenListe = new File(args[0], args[1])
-        KontenRepository kontenRepository = new KontenRepository()
+        kontenRepository = new KontenRepository()
         kontenRepository.init(kontenListe.toURI().toURL())
 
         File bankenListe = new File(args[0], args[2])
-        BankenRepository bankenRepository = new BankenRepository()
+        bankenRepository = new BankenRepository()
         bankenRepository.init(bankenListe.toURI().toURL())
+
+        File journal = new File(args[0], args[3])
+        ueberweisungsJournal = new UeberweisungsJournal()
+        ueberweisungsJournal.init(journal)
     }
 
+    private void technischeInfrastrukturSchliessen(String[] args) {
+        File journal = new File(args[0], args[3])
+        ueberweisungsJournal.save(journal)
+    }
+    
     public static void main(String[] args) {
         new Program().run(args)
     }
