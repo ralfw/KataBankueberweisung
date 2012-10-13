@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="bankueberweisung.console/Main.cs">
+    <Files>
+      <File FileName="bankueberweisung.console/Main.cs" Line="11" Column="39" />
+      <File FileName="bankueberweisung.console/umgebung/portale/UI.cs" Line="7" Column="3" />
+      <File FileName="bankueberweisung.console/umgebung/adapter/BLZVerzeichnis.cs" Line="5" Column="29" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
