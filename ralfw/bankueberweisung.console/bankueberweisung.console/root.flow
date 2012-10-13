@@ -12,3 +12,9 @@ Phase4_TAN_versenden, ui.TAN_erfragen
 ui.TAN_erfasst, Phase5_Ueberweisung_durchfuehren
 Phase5_Ueberweisung_durchfuehren, ui.Beenden
 ui.Ende, .exit
+
+
+Programmstart
+., HeimBLZ
+HeimBLZ, Bankname_ermitteln
+Bankname_ermitteln, .

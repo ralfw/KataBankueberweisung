@@ -8,15 +8,15 @@ namespace bankueberweisung.console.umgebung.portale
 	{
 		public void Start(Tuple<string,string> sender_blz_bankname) {
 			Console.WriteLine("Willkommen bei der Kata Bank ({0}, {1})", sender_blz_bankname.Item1, sender_blz_bankname.Item2);
-			Console.WriteLine("Ihr Name: ");
-			Console.WriteLine("Ihre Kontonummer: ");
-			Sender_erfasst(new Tuple<string,string>("Sendername", "Senderktonr"));
+			Console.Write("Ihr Name: "); var name = Console.ReadLine();
+			Console.Write("Ihre Kontonummer: "); var kontonummer = Console.ReadLine();
+			Sender_erfasst(new Tuple<string,string>(name, kontonummer));
 		}
 
 		public void Bewegung_erfragen() {
-			Console.WriteLine("Überweisungsbetrag: ");
-			Console.WriteLine("Überweisungstext: ");
-			Bewegung_erfasst(new Tuple<double,string>(42.24, "Text"));
+			Console.WriteLine("Überweisungsbetrag: "); //var betrag = double.Parse(Console.ReadLine());
+			Console.WriteLine("Überweisungstext: "); //var text = Console.ReadLine();
+			Bewegung_erfasst(new Tuple<double,string>(42.24, "hello, world!"));
 		}
 
 		public void Empfaenger_erfragen() {

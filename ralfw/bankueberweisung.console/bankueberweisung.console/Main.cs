@@ -7,6 +7,7 @@ using npantarhei.runtime.contract;
 
 namespace bankueberweisung.console
 {
+	[StaticOperations]
 	class MainClass
 	{
 		public static void Main (string[] args)
@@ -19,21 +20,22 @@ namespace bankueberweisung.console
 				fr.WaitForResult();
 			}
 		}
+
+
+		public static string HeimBLZ() {
+			return "20050550";
+		}
 	}
 
 
 	[StaticOperations]
 	class DummyOperations {
-		public static Tuple<string,string> Programmstart() {
-			return new Tuple<string,string>("20050550", "Hamburger Sparkasse");
-		}
-
 		public static void Phase1_Sender_pruefen(Tuple<string,string> sender_name_kontonummer) {
-			Log("Sender geprüft!");
+			Log("Sender geprüft: name={0}, ktonr={1}", sender_name_kontonummer.Item1, sender_name_kontonummer.Item2);
 		}
 
 		public static void Phase2_Bewegung_pruefen(Tuple<double,string> betrag_text) {
-			Log("Bewegung geprüft!");
+			Log("Bewegung geprüft: betrag={0}, text={1}", betrag_text.Item1, betrag_text.Item2);
 		}
 
 		public static string Phase3_Empfaenger_pruefen(Tuple<string,string,string> empfänger_name_ktonr_blz) {
@@ -49,13 +51,12 @@ namespace bankueberweisung.console
 			Log("TAN geprüft und Überweisung ausgeführt!");
 		}
 
-		private static void Log(string message) {
-			var fgc = Console.ForegroundColor;
+		private static void Log(string message, params object[] values) {
 			Console.ForegroundColor = ConsoleColor.Yellow;
 			
-			Console.WriteLine("<<{0}>>", message);
+			Console.WriteLine("  {0}", string.Format(message, values));
 			
-			Console.ForegroundColor = fgc;
+			Console.ForegroundColor = ConsoleColor.Black;
 		}
 	}
 }
