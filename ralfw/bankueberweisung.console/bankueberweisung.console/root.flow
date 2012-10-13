@@ -16,5 +16,12 @@ ui.Ende, .exit
 
 Programmstart
 ., HeimBLZ
+HeimBLZ, SenderBLZ_eintragen
 HeimBLZ, Bankname_ermitteln
 Bankname_ermitteln, .
+
+
+Phase1_Sender_pruefen
+., Konto_laden
+Konto_laden, Sender_eintragen
+Sender_eintragen, .

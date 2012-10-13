@@ -41,6 +41,8 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="umgebung\portale\UI.cs" />
     <Compile Include="umgebung\adapter\BLZVerzeichnis.cs" />
+    <Compile Include="umgebung\adapter\Kontenliste.cs" />
+    <Compile Include="kern\Überweisung.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
