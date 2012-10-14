@@ -18,7 +18,7 @@ Programmstart
 ., HeimBLZ
 HeimBLZ, SenderBLZ_eintragen
 HeimBLZ, Bankname_ermitteln
-Bankname_ermitteln, .
+Bankname_ermitteln.bankGefunden, .
 
 
 Phase1_Sender_pruefen

@@ -35,6 +35,7 @@
     <Reference Include="npantarhei.runtime">
       <HintPath>..\..\lib\npantarhei.runtime.dll</HintPath>
     </Reference>
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -50,23 +51,23 @@
     <Folder Include="kern\" />
     <Folder Include="umgebung\portale\" />
     <Folder Include="umgebung\adapter\" />
-    <Folder Include="daten\" />
+    <Folder Include="db\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Daten\Bankleitzahlen.txt">
-      <Link>daten\Bankleitzahlen.txt</Link>
+      <Link>db\Bankleitzahlen.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\..\..\Daten\Kontenliste.txt">
-      <Link>daten\Kontenliste.txt</Link>
+      <Link>db\Kontenliste.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\..\..\Daten\Überweisungsaufträge.txt">
-      <Link>daten\Überweisungsaufträge.txt</Link>
+      <Link>db\Überweisungsaufträge.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\..\..\Daten\Überweisungsjournal.txt">
-      <Link>daten\Überweisungsjournal.txt</Link>
+      <Link>db\Überweisungsjournal.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -43,6 +43,11 @@ namespace bankueberweisung.console.umgebung.portale
 			Ende();
 		}
 
+		public void Fehler(string fehlermeldung) {
+			Console.WriteLine("*** Fehler: {0}", fehlermeldung);
+			Ende();
+		}
+
 		public event Action<Tuple<string,string>> Sender_erfasst;
 		public event Action<Tuple<double,string>> Bewegung_erfasst;
 		public event Action<Tuple<string,string,string>> Empfaenger_erfasst;
