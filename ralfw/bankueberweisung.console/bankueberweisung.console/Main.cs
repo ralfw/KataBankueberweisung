@@ -51,10 +51,8 @@ namespace bankueberweisung.console
 
 		private static void Log(string message, params object[] values) {
 			Console.ForegroundColor = ConsoleColor.Yellow;
-			
-			Console.WriteLine("  {0}", string.Format(message, values));
-			
-			Console.ForegroundColor = ConsoleColor.Black;
+				Console.WriteLine("  {0}", string.Format(message, values));
+			Console.ResetColor();
 		}
 	}
 }

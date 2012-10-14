@@ -44,7 +44,9 @@ namespace bankueberweisung.console.umgebung.portale
 		}
 
 		public void Fehler(string fehlermeldung) {
-			Console.WriteLine("*** Fehler: {0}", fehlermeldung);
+			Console.ForegroundColor = ConsoleColor.Red;
+				Console.WriteLine("*** Fehler: {0}", fehlermeldung);
+			Console.ResetColor();
 			Ende();
 		}
 

@@ -2,7 +2,8 @@
 .run, Programmstart
 Programmstart, ui.Start
 ui.Sender_erfasst, Phase1_Sender_pruefen
-Phase1_Sender_pruefen, ui.Bewegung_erfragen
+Phase1_Sender_pruefen.ok, ui.Bewegung_erfragen
+Phase1_Sender_pruefen.err, ui.Fehler
 ui.Bewegung_erfasst, Phase2_Bewegung_pruefen
 Phase2_Bewegung_pruefen, ui.Empfaenger_erfragen
 ui.Empfaenger_erfasst, Phase3_Empfaenger_pruefen
@@ -23,5 +24,6 @@ Bankname_ermitteln.bankGefunden, .
 
 Phase1_Sender_pruefen
 ., Konto_laden
-Konto_laden, Sender_eintragen
-Sender_eintragen, .
+Konto_laden.senderGefunden, Sender_eintragen
+Sender_eintragen, .ok
+Konto_laden.unbekannterSender, .err
