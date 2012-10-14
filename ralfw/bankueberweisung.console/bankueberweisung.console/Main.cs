@@ -16,7 +16,7 @@ namespace bankueberweisung.console
 								.AddStreamsFrom("bankueberweisung.console.root.flow", Assembly.GetExecutingAssembly())
 								.AddOperations(new AssemblyCrawler(Assembly.GetExecutingAssembly()));
 			using(var fr = new FlowRuntime(config)) {
-				fr.Message += Console.WriteLine;
+				//fr.Message += Console.WriteLine;
 
 				fr.Process(".run");
 				fr.WaitForResult();
@@ -32,10 +32,6 @@ namespace bankueberweisung.console
 
 	[StaticOperations]
 	class DummyOperations {
-		public static void Phase2_Bewegung_pruefen(Tuple<double,string> betrag_text) {
-			Log("Bewegung geprüft: betrag={0}, text={1}", betrag_text.Item1, betrag_text.Item2);
-		}
-
 		public static string Phase3_Empfaenger_pruefen(Tuple<string,string,string> empfänger_name_ktonr_blz) {
 			Log("Empfänger geprüft!");
 			return "30060660";

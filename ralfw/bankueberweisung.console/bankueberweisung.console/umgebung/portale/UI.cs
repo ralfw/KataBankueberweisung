@@ -14,9 +14,9 @@ namespace bankueberweisung.console.umgebung.portale
 		}
 
 		public void Bewegung_erfragen() {
-			Console.WriteLine("Überweisungsbetrag: "); //var betrag = double.Parse(Console.ReadLine());
-			Console.WriteLine("Überweisungstext: "); //var text = Console.ReadLine();
-			Bewegung_erfasst(new Tuple<double,string>(42.24, "hello, world!"));
+			Console.Write("Überweisungsbetrag: "); var betrag = double.Parse(Console.ReadLine());
+			Console.Write("Überweisungstext: "); var text = Console.ReadLine();
+			Bewegung_erfasst(new Tuple<double,string>(betrag, text));
 		}
 
 		public void Empfaenger_erfragen() {

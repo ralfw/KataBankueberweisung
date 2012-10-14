@@ -4,12 +4,17 @@ Programmstart, ui.Start
 ui.Sender_erfasst, Phase1_Sender_pruefen
 Phase1_Sender_pruefen.ok, ui.Bewegung_erfragen
 Phase1_Sender_pruefen.err, ui.Fehler
+
 ui.Bewegung_erfasst, Phase2_Bewegung_pruefen
-Phase2_Bewegung_pruefen, ui.Empfaenger_erfragen
+Phase2_Bewegung_pruefen.ok, ui.Empfaenger_erfragen
+Phase2_Bewegung_pruefen.err, ui.Fehler
+
 ui.Empfaenger_erfasst, Phase3_Empfaenger_pruefen
 Phase3_Empfaenger_pruefen, ui.Bestaetigung_erbitten
+
 ui.Bestaetigt, Phase4_TAN_versenden
 Phase4_TAN_versenden, ui.TAN_erfragen
+
 ui.TAN_erfasst, Phase5_Ueberweisung_durchfuehren
 Phase5_Ueberweisung_durchfuehren, ui.Beenden
 ui.Ende, .exit
@@ -27,3 +32,13 @@ Phase1_Sender_pruefen
 Konto_laden.senderGefunden, Sender_eintragen
 Sender_eintragen, .ok
 Konto_laden.unbekannterSender, .err
+
+
+Phase2_Bewegung_pruefen
+., Limit_eingehalten
+Limit_eingehalten.ok, Konto_gedeckt
+Konto_gedeckt.ok, Bewegung_eintragen
+Bewegung_eintragen, .ok
+
+Limit_eingehalten.err, .err
+Konto_gedeckt.err, .err
