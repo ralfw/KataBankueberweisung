@@ -32,11 +32,6 @@ namespace bankueberweisung.console
 
 	[StaticOperations]
 	class DummyOperations {
-		public static string Phase3_Empfaenger_pruefen(Tuple<string,string,string> empfänger_name_ktonr_blz) {
-			Log("Empfänger geprüft!");
-			return "30060660";
-		}
-
 		public static void Phase4_TAN_versenden(bool geprüft) {
 			Log("TAN versandt!");
 		}

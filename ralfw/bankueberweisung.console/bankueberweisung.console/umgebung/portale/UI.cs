@@ -21,13 +21,15 @@ namespace bankueberweisung.console.umgebung.portale
 
 		public void Empfaenger_erfragen() {
 			Console.WriteLine("Angaben zum Empfänger");
-			Console.WriteLine("Name: ");
-			Console.WriteLine("Kontonummer: ");
-			Console.WriteLine("BLZ: ");
-			Empfaenger_erfasst(new Tuple<string,string,string>("Empfängername", "Empfängerktonr", "EmpfängerBLZ"));
+			Console.Write("Name: "); var name = Console.ReadLine();
+			Console.Write("Kontonummer: "); var kontonr = Console.ReadLine();
+			Console.Write("BLZ: "); var blz = Console.ReadLine();
+			Empfaenger_erfasst(new Tuple<string,string,string>(name, kontonr, blz));
 		}
 
-		public void Bestaetigung_erbitten(string empfaenger_blz) {
+		public void Bestaetigung_erbitten(Tuple<string,string> empfänger_blz_bankname) {
+			Console.WriteLine("Bankname: {0}", empfänger_blz_bankname.Item2);
+
 			Console.WriteLine("Bitte überprüfen Sie die Angaben.");
 			Console.WriteLine("Überweisung durchführen? [jN]");
 			Bestaetigt(true);

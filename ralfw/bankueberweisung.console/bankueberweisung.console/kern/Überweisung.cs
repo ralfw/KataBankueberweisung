@@ -12,6 +12,8 @@ namespace bankueberweisung.console
 		private double _betrag;
 		private string _text;
 
+		private Empfängerkontodetails _empfängerkonto;
+
 		public void SenderBLZ_eintragen(string blz) {
 			_senderBLZ = blz;
 		}
@@ -39,6 +41,23 @@ namespace bankueberweisung.console
 			else
 				err(string.Format("Der Überweisungsbetrag {0} EUR ist höher als der Kontostand von {1} EUR!", bewegung.Item1, _senderkonto.Stand));
 		}
+
+		public string Empfaenger_eintragen(Tuple<string,string,string> name_ktonr_blz) {
+			_empfängerkonto = new Empfängerkontodetails {
+										Name = name_ktonr_blz.Item1,
+										Kontonummer = name_ktonr_blz.Item2,
+										BLZ = name_ktonr_blz.Item3
+									};
+			return _empfängerkonto.BLZ;
+		}
+	}
+
+
+	class Empfängerkontodetails
+	{
+		public string Name;
+		public string Kontonummer;
+		public string BLZ;
 	}
 }
 

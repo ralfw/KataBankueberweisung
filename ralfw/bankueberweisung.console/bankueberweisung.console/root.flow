@@ -10,7 +10,8 @@ Phase2_Bewegung_pruefen.ok, ui.Empfaenger_erfragen
 Phase2_Bewegung_pruefen.err, ui.Fehler
 
 ui.Empfaenger_erfasst, Phase3_Empfaenger_pruefen
-Phase3_Empfaenger_pruefen, ui.Bestaetigung_erbitten
+Phase3_Empfaenger_pruefen.ok, ui.Bestaetigung_erbitten
+Phase3_Empfaenger_pruefen.err, ui.Fehler
 
 ui.Bestaetigt, Phase4_TAN_versenden
 Phase4_TAN_versenden, ui.TAN_erfragen
@@ -39,6 +40,12 @@ Phase2_Bewegung_pruefen
 Limit_eingehalten.ok, Konto_gedeckt
 Konto_gedeckt.ok, Bewegung_eintragen
 Bewegung_eintragen, .ok
-
 Limit_eingehalten.err, .err
 Konto_gedeckt.err, .err
+
+
+Phase3_Empfaenger_pruefen
+., Empfaenger_eintragen
+Empfaenger_eintragen, Bankname_ermitteln
+Bankname_ermitteln.bankGefunden, .ok
+Bankname_ermitteln.unbekannteBank, .err
