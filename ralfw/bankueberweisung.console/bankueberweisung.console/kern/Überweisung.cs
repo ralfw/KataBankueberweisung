@@ -11,8 +11,8 @@ namespace bankueberweisung.console
 		private Senderkontodetails _senderkonto;
 		private double _betrag;
 		private string _text;
-
 		private Empfängerkontodetails _empfängerkonto;
+		private string _tan;
 
 		public void SenderBLZ_eintragen(string blz) {
 			_senderBLZ = blz;
@@ -49,6 +49,12 @@ namespace bankueberweisung.console
 										BLZ = name_ktonr_blz.Item3
 									};
 			return _empfängerkonto.BLZ;
+		}
+
+
+		public Tuple<string,string> TAN_generieren() {
+			_tan = DateTime.Now.ToString("ddhhmmss");
+			return new Tuple<string, string>(_senderkonto.Handynr, _tan);
 		}
 	}
 

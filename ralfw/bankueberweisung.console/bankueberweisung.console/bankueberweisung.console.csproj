@@ -44,6 +44,7 @@
     <Compile Include="umgebung\adapter\BLZVerzeichnis.cs" />
     <Compile Include="umgebung\adapter\Kontenliste.cs" />
     <Compile Include="kern\Überweisung.cs" />
+    <Compile Include="umgebung\adapter\SmsAdapter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

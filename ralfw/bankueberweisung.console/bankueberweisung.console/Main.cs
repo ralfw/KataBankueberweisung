@@ -32,10 +32,6 @@ namespace bankueberweisung.console
 
 	[StaticOperations]
 	class DummyOperations {
-		public static void Phase4_TAN_versenden(bool geprüft) {
-			Log("TAN versandt!");
-		}
-
 		public static void Phase5_Ueberweisung_durchfuehren(string TAN) {
 			Log("TAN geprüft und Überweisung ausgeführt!");
 		}

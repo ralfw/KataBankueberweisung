@@ -31,8 +31,17 @@ namespace bankueberweisung.console.umgebung.portale
 			Console.WriteLine("Bankname: {0}", empfänger_blz_bankname.Item2);
 
 			Console.WriteLine("Bitte überprüfen Sie die Angaben.");
-			Console.WriteLine("Überweisung durchführen? [jN]");
-			Bestaetigt(true);
+			Console.Write("Überweisung durchführen? [jN]"); var cmd = Console.ReadLine();
+
+			if (cmd == "" || cmd.ToLower() == "j")
+				Bestaetigt();
+			else
+			{
+				Console.ForegroundColor = ConsoleColor.Yellow;
+					Console.WriteLine("*** Überweisung abgebrochen!");
+				Console.ResetColor();
+				Ende();
+			}
 		}
 
 		public void TAN_erfragen() {
@@ -55,7 +64,7 @@ namespace bankueberweisung.console.umgebung.portale
 		public event Action<Tuple<string,string>> Sender_erfasst;
 		public event Action<Tuple<double,string>> Bewegung_erfasst;
 		public event Action<Tuple<string,string,string>> Empfaenger_erfasst;
-		public event Action<bool> Bestaetigt;
+		public event Action Bestaetigt;
 		public event Action<string> TAN_erfasst;
 		public event Action Ende;
 	}

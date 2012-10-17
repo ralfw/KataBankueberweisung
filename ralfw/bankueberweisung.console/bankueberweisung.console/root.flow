@@ -49,3 +49,9 @@ Phase3_Empfaenger_pruefen
 Empfaenger_eintragen, Bankname_ermitteln
 Bankname_ermitteln.bankGefunden, .ok
 Bankname_ermitteln.unbekannteBank, .err
+
+
+Phase4_TAN_versenden
+., TAN_generieren
+TAN_generieren, TAN_versenden
+TAN_versenden, .
