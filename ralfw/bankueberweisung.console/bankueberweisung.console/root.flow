@@ -17,7 +17,8 @@ ui.Bestaetigt, Phase4_TAN_versenden
 Phase4_TAN_versenden, ui.TAN_erfragen
 
 ui.TAN_erfasst, Phase5_Ueberweisung_durchfuehren
-Phase5_Ueberweisung_durchfuehren, ui.Beenden
+Phase5_Ueberweisung_durchfuehren.ok, ui.Beenden
+Phase5_Ueberweisung_durchfuehren.ungueltigeTAN, ui.Fehler
 ui.Ende, .exit
 
 
@@ -55,3 +56,18 @@ Phase4_TAN_versenden
 ., TAN_generieren
 TAN_generieren, TAN_versenden
 TAN_versenden, .
+
+
+Phase5_Ueberweisung_durchfuehren
+., TAN_pruefen,
+TAN_pruefen.ok, Ueberweisen
+Ueberweisen, .ok
+TAN_pruefen.err, .ungueltigeTAN
+
+Ueberweisen
+., Ueberweisungsauftrag_schnueren
+Ueberweisungsauftrag_schnueren, Journalisieren
+Journalisieren, Beauftragen
+Beauftragen, Neuen_Kontostand_berechnen
+Neuen_Kontostand_berechnen, Kontenliste_aktualisieren
+Kontenliste_aktualisieren, .

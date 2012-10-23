@@ -1,1 +1,1 @@
-EmpfängerBLZ	Empfängerkontonummer	Empfänger	Überweisungsbetrag	Überweisungstext	Überweisungsdatum	SenderBLZ	Senderkontonummer	Sendername10090000	99283123	Kevin Salzmann	42,24	Ein erster Test	05.12.12 17:45	20050550	12349876	Peter Mustermann
+EmpfängerBLZ	Empfängerkontonummer	Empfänger	Überweisungsbetrag	Überweisungstext	Überweisungsdatum	SenderBLZ	Senderkontonummer	Sendername10090000	99283123	Kevin Salzmann	42,24	Ein erster Test	05.12.12 17:45	20050550	12349876	Peter Mustermann

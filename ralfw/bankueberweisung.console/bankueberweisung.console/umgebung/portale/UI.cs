@@ -45,8 +45,8 @@ namespace bankueberweisung.console.umgebung.portale
 		}
 
 		public void TAN_erfragen() {
-			Console.WriteLine("Bitte TAN eingeben: ");
-			TAN_erfasst("TAN1234");
+			Console.Write("Bitte TAN eingeben: "); var tan = Console.ReadLine();
+			TAN_erfasst(tan);
 		}
 
 		public void Beenden() {

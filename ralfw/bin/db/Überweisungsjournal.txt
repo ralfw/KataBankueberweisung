@@ -1,3 +1,6 @@
 Kontonummer	Überweisungsbetrag	Überweisungstext	Überweisungsdatum	Empfängername	Empfängerkontonummer	EmpfängerBLZ
 12349876	42,24	Ein erster Test	05.12.12	Frank Fabian	99283123	10090000
 12349876	10,0	test	10.10.12	Paul	M√ºller	20050550
+12349876	100	heh	23.10.12	pm	1111	20050550
+12349876	100	dsds	23.10.12	ds	1111	20050550
+12349876	100	deds	23.10.12	pm	232332	20050550

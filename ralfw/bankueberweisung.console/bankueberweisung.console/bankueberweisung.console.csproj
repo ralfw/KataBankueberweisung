@@ -45,6 +45,11 @@
     <Compile Include="umgebung\adapter\Kontenliste.cs" />
     <Compile Include="kern\Überweisung.cs" />
     <Compile Include="umgebung\adapter\SmsAdapter.cs" />
+    <Compile Include="daten\Senderkontodetails.cs" />
+    <Compile Include="daten\Kontoidentifikation.cs" />
+    <Compile Include="daten\Überweisungsauftrag.cs" />
+    <Compile Include="umgebung\adapter\Überweisungsjournal.cs" />
+    <Compile Include="umgebung\adapter\Überweisungsaufträge.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -53,6 +58,7 @@
     <Folder Include="umgebung\portale\" />
     <Folder Include="umgebung\adapter\" />
     <Folder Include="db\" />
+    <Folder Include="daten\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Daten\Bankleitzahlen.txt">
